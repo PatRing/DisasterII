@@ -22,7 +22,7 @@ PUNCTUATION_TABLE = str.maketrans('', '', string.punctuation)
 
 def load_data(database_filepath):
     engine = create_engine('sqlite:///' + database_filepath)
-    df = pd.read_sql_table('labeled_messages', engine)
+    df = pd.read_sql_table('table', engine)
     engine.dispose()
 
     X = df['message']
