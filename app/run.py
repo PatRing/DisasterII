@@ -41,8 +41,12 @@ def index():
     
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
-    #genre_counts = df.groupby('genre').count()['message']
-    #genre_names = list(genre_counts.index)
+    genre_counts = df.groupby('genre').count()['message']
+    genre_names = list(genre_counts.index)
+    
+    # Top five categories count
+    top_category_count = df.iloc[:,4:].sum().sort_values(ascending=False)[1:6]
+    top_category_names = list(top_category_count.index)
     
     # create visuals
 # TODO: Below is an example - modify to create your own visuals  
@@ -64,6 +68,28 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        }
+    ]
+    
+    
+     graphs = [
+        {
+            'data': [
+                Bar(
+                    x=top_category__names,
+                    y= top_category_count
+                )
+            ],
+
+            'layout': {
+                'title': 'Top Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Categories"
                 }
             }
         }
