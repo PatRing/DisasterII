@@ -11,4 +11,26 @@
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
-# DisasterII
+
+
+# Files:
+
+## process_data.py
+        Load the CSV files.
+        Merge the messages & categories.
+        Process the categories to a format which is better suitable for processing.
+        Clean the data.
+        Save the DataFrame into SQLite db.
+        
+        
+## train_classifier.py :
+
+
+    Load and split the data from the SQLite DB into test and train sets.
+    The script uses a custom tokenize function using nltk to case normalize, lemmatize, and tokenize text. This function is used in the machine learning pipeline to vectorize and then apply TF-IDF to the text.
+    Use GridSearch to find the best parameters of a RandomForestClassifier.
+    Use the best parameters found above to train the model.
+    Measure & display the performance of the trained model on the test set.
+    Save the model as a Pickle file.
+
+
